@@ -35,14 +35,23 @@ print(f"R Squared value: {r_squared}")
 **********TEST THE MODEL**********
 '''
 # reshape the xtest data into a 2D array
+print(xtest)
+xtest = xtest.reshape(-1, 1)
+print("this is the xtest", xtest)
 
 # get the predicted y values for the xtest values - returns an array of the results
+predict = model.predict(xtest)
 
 # round the value in the np array to 2 decimal places
-
+predict = np.around(predict, 2)
 
 # Test the model by looping through all of the values in the xtest dataset
 print("\nTesting Linear Model with Testing Data:")
+for index in range(len(xtest)):
+    actual = ytest[index]
+    predicted_y = predcit[index]
+    x_coord = xtest[index]
+print ("x value:", float(x_coord), "Predicted Y Value: ", predicted_y, "Actual Y Value: ", actual)
 
 
 '''
